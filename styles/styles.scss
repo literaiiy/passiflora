@@ -1,0 +1,214 @@
+$accent: #db6a8a;
+$darkerAccent: #bb4667;
+$beige: rgb(255, 254, 243);
+$darkerBeige: rgb(245, 242, 233);
+$notBlack: #171717;
+
+// Default
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Crimson Pro", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    color: $notBlack;
+  background-color: $beige;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  & > div {
+    flex: 1 0 auto;
+  }
+  & > footer {
+    flex-shrink: 0;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.styled-a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hero {
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.jpg");
+  height: 40rem;
+  // filter: brightness(0.6);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hero-text {
+  margin: auto;
+  color: white;
+  z-index: 20;
+  font-size: 4rem;
+  font-family: "Noto Serif Display";
+  text-shadow: 0.25rem 0.25rem 0.125rem rgba(64, 64, 64, 0.75);
+}
+
+footer {
+  bottom: 0;
+  background-color: $darkerBeige;
+  height: 4rem;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  & > span {
+    color: $darkerAccent;
+    margin: auto;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  text-align: center;
+  font-family: "Crimson Pro";
+  font-weight: 600;
+}
+
+p {
+  text-align: center;
+  margin: auto;
+  padding: 0.5rem 4rem;
+  max-width: 60rem;
+}
+
+header {
+  text-align: center;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Crimson Pro";
+  color: $accent;
+  background: $darkerBeige;
+}
+
+.nav-title {
+  color: $darkerAccent;
+  font-family: "Crimson Pro";
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3rem;
+}
+
+hr {
+  width: 14rem;
+  border-top: 1px solid $notBlack;
+}
+
+.select-create {
+  background-color: $darkerBeige;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  font-family: "Crimson Pro";
+  font-weight: 600;
+  font-size: 1.25rem;
+  & > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > input[type=text] {
+      width: 14rem;
+      text-align: center;
+      font-family: inherit;
+      padding: 0.5rem;
+      border: solid 2px $accent;
+      color: $accent;
+      border-radius: 0.4rem;
+      font-weight: inherit;
+      background-color: $darkerBeige;
+      &:focus {
+        border: solid 2px $darkerAccent;
+        outline: none;
+        color: $darkerAccent;
+        border-radius: 0.4rem;
+      }
+    }
+    & > label {
+      padding-bottom: 0.5rem;
+      color: $accent;
+    }
+  }
+  & > a {
+    width: 14rem;
+    text-align: center;
+    font-family: inherit;
+    padding: 0.5rem;
+    background-color: $accent;
+    border-radius: 0.4rem;
+    color: $beige;
+    font-weight: inherit;
+    border: solid 2px $darkerAccent;
+    margin-bottom: 0.5rem;
+    transition: ease 0.5s;
+    &:hover {
+      background-color: $darkerAccent;
+    }
+  }
+}
+
+.nav-icon {
+  height: 2rem;
+  margin: 0.5rem;
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.hero-nav {
+  display: flex;
+  height: 3rem;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  height: 3rem;
+  justify-content: space-between;
+  background-color: $darkerBeige;
+}
+
+.nav-create-button {
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.4rem;
+  height: 2rem;
+  line-height: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  transition: ease 0.5s;
+  &:hover {
+    background-color: white;
+    color: $accent;
+  }
+}
+
+#error-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+// 

@@ -5,7 +5,7 @@ export default function Create() {
         <div>
             <title>Create a Schedule - Passiflora</title>
             <main>
-                <Nav title="Create a Schedule">
+                <Nav title="Create a Schedule" />
             </main>
         </div>
     )

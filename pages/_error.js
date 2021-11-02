@@ -7,7 +7,7 @@ export default function Error({ statusCode }) {
             <h1>{statusCode}</h1>
             <h2>An error has occured.</h2>
             <p>That&apos;s not supposed to happen.</p>
-            <Link href="/">Back</Link>
+            <a href="/">Back</a>
         </main>
     )
 }

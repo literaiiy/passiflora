@@ -23,8 +23,8 @@ class MyDocument extends Document {
         <NextScript />
         <footer>
           <span>
-              Copyright © {currentYear} <a className='styled-a' href="https://literaiiy.me">literaiiy</a>. All rights reserved. Created with <Link className='styled-a' href="https://nextjs.org">Next.js</Link>. Powered by <Link className='styled-a' href="https://vercel.com">Vercel</Link>.<br />
-              <Link className='styled-a' href="/tos">Terms of Service</Link>. <Link className='styled-a' href="/privacy">Privacy Policy</Link>.
+              Copyright © {currentYear} <a className='styled-a' href="https://literaiiy.me">literaiiy</a>. All rights reserved. Created with <a className='styled-a' href="https://nextjs.org">Next.js</a>. Powered by <a className='styled-a' href="https://vercel.com">Vercel</a>.<br />
+              <a className='styled-a' href="/tos">Terms of Service</a>. <a className='styled-a' href="/privacy">Privacy Policy</a>.
           </span>
         </footer>
       </Html>

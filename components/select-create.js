@@ -18,7 +18,7 @@ export default class SelectCreate extends React.Component {
     render() {
         return (
             <section className='select-create'>
-            <Link href="/schedule" >Create a schedule</Link>
+            <a href="/schedule" >Create a schedule</a>
             <hr />
             <form action={this.state.actionUrl}>
             <label htmlFor="code-input">Enter a code</label>

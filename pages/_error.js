@@ -6,8 +6,13 @@ export default function Error({ statusCode }) {
         <main id='error-main'>
             <h1>{statusCode}</h1>
             <h2>An error has occured.</h2>
-            <p>That&apos;s not supposed to happen.</p>
-            <a href="/">Back</a>
+            <p>{ (statusCode == 404) ? "This page wasn't found." : "Oops. Something went wrong. Try again later."}</p>
+            <a class='styled-a' href="/">Back</a>
         </main>
     )
+}
+
+Error.getInitialProps = ({ res, err }) => {
+    const statusCode = res ? res.statusCode : err ? err.statusCode : 404
+    return { statusCode }
 }

@@ -78,6 +78,7 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   font-family: "Crimson Pro";
   font-weight: 600;
+  color: $accent;
 }
 
 p {
@@ -210,5 +211,23 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  & > h1 {
+    font-size: 6rem;
+    font-family: "Qaitan Serif Font";
+    color: $darkerAccent;
+  }
 }
+
+#schedule-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#schedule-clock {
+  font-size: 2rem;
+}
+
 // 

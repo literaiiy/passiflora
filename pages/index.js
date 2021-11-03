@@ -9,7 +9,7 @@ export default function Main() {
       <main>
         <div className="hero">
           <div className='hero-nav'>
-            <a href="/schedule" className="nav-create-button">CREATE A SCHEDULE</a>
+            <a href="/create" className="nav-create-button">CREATE A SCHEDULE</a>
             <a href="https://github.com/literaiiy"><img className='nav-icon invert' src="https://unpkg.com/simple-icons@5.21.1/icons/github.svg" alt="GitHub" /></a>
           </div>
           <span className='hero-text'>Passiflora</span>

@@ -230,4 +230,15 @@ nav {
   font-size: 2rem;
 }
 
+#schedule-table {
+  margin: auto;
+  .period-name {
+    font-weight: bold;
+    color: $darkerAccent;
+  }
+  .period-time {
+    color: $accent;
+  }
+}
+
 // 

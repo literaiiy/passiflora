@@ -12,7 +12,7 @@ export default class SelectCreate extends React.Component {
     }
 
     handleInputChange(event) {
-        this.setState({actionUrl: event.target.value});
+        this.setState({actionUrl: "/s/" + event.target.value});
     }
 
     render() {

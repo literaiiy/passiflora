@@ -57,7 +57,8 @@ export default class Code extends React.Component {
       's': 'Short break',
     }
     
-    this.settings = decodeConfig(code.slice(code.indexOf("-")+1,))      
+    this.settings = decodeConfig(code.slice(code.indexOf("-")+1,))    
+    console.log(this.settings)  
     this.schedule = decodeSchedule(code.slice(0, code.indexOf("-")), this.settings.schedule)
 
     if (typeof(this.schedule) !== 'undefined') {
@@ -102,8 +103,8 @@ function decodeConfig(url) {
     namingScheme: ['p','h','c','t','i'].includes(url[0]) ? url[0] : null,
     lang: ['e','s','f','c','r','i','p'].includes(url[1]) ? url[1] : null,
     schedule: url.slice(2, -2),
-    theme: ['d','l','s','f'].includes(url.at(-2)) ? url.at(-2) : null,
-    timeFormat: ['t','u','m'].includes(url.at(-1)) ? url.at(-1) : null,
+    theme: ['d','l','s','f'].includes(url.slice(-2,-1)[0]) ? url.slice(-2,-1)[0] : null,
+    timeFormat: ['t','u','m'].includes(url.slice(-1)[0]) ? url.slice(-1)[0] : null,
   }
 }
 

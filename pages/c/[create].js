@@ -17,7 +17,7 @@ export default class Create extends React.Component {
       <div>
         <title>Create schedule - Passiflora</title>
         <Nav title="Create a schedule"/>
-        <PostHero title={code} />
+        <PostHero/>
       </div>
     )
   }

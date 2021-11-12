@@ -70,7 +70,18 @@ export default class Code extends React.Component {
       for (let x of this.schedule) {
         bal.push(
           <tr key={this.schedule.indexOf(x)}>
-            <td className={`${this.schedule[(this.schedule.indexOf(x)+1)%this.schedule.length][0] == this.state.nextPeriod[0] && this.schedule[(this.schedule.indexOf(x)+1)%this.schedule.length][1] == this.state.nextPeriod[1] ? "period-emphasis" : ""} period-name`}>{translatePeriod[x[0]]}</td>
+            <td className={
+              `${
+                this.schedule[(this.schedule.indexOf(x)+1)%this.schedule.length][0] 
+                == this.state.nextPeriod[0] 
+                && this.schedule[(this.schedule.indexOf(x)+1)%this.schedule.length][1] 
+                == this.state.nextPeriod[1] 
+                || this.state.nextPeriod[0] 
+                == null && x[0] == this.schedule[this.schedule.length - 1][0]
+                        && x[1] == this.schedule[this.schedule.length - 1][1]
+                ? "period-emphasis" : "" } period-name`}
+              > {translatePeriod[x[0]]}
+            </td>
             <td className="period-time">{Funcs.getTimeFromMin(x[1], this.settings.timeFormat)}</td>
           </tr>
         )

@@ -2,7 +2,7 @@ $accent: #db6a8a;
 $darkerAccent: #bb4667;
 $beige: rgb(255, 254, 243);
 $darkerBeige: rgb(245, 242, 233);
-$notBlack: #171717;
+$notBlack: #2c2c2c;
 
 // Default //
 
@@ -52,6 +52,10 @@ a {
   flex-direction: column;
 }
 
+section {
+  padding: 1rem 0;
+}
+
 .hero-text {
   margin: auto;
   color: white;
@@ -79,6 +83,7 @@ h1, h2, h3, h4, h5 {
   font-family: "Crimson Pro";
   font-weight: 600;
   color: $accent;
+  margin: 0.75rem 0;
 }
 
 h1 { font-size: 3rem; }
@@ -232,6 +237,9 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
+  & > hr {
+    width: 24rem;
+  }
 }
 
 #schedule-clock {
@@ -253,6 +261,7 @@ nav {
     font-weight: bold;
     color: $darkerAccent;
     font-size: 1.25rem;
+    padding: 0 0.5rem;
   }
   .period-time {
     color: $accent;
@@ -274,14 +283,17 @@ nav {
   margin: auto;
   color: white;
   z-index: 20;
-  font-size: 3rem;
+  font-size: min(10vw, 3rem);
   font-family: "Noto Serif Display";
   text-shadow: 0.2rem 0.2rem 0.125rem rgba(64, 64, 64, 0.75);
+  text-align: center;
 }
 
 #schedule-sections {
   display: flex;
-  gap: 3rem;
+  flex-wrap: wrap;
+  gap: 0 3rem;
+  justify-content: center;
 }
 
 #schedule-sections-left {
@@ -294,4 +306,27 @@ nav {
 .period-emphasis {
   background-color: rgba(0,0,0,0.07);
   border-radius: 0.25rem;
+}
+
+.schedule-edit-button {
+  font-weight: 600;
+  font-size: 1.25rem;
+  width: 14rem;
+  text-align: center;
+  font-family: inherit;
+  padding: 0.5rem;
+  background-color: $accent;
+  border-radius: 0.4rem;
+  color: $beige;
+  border: solid 2px $darkerAccent;
+  margin: 0.5rem;
+  transition: ease 0.5s;
+  &:hover {
+    background-color: $darkerAccent;
+  }
+}
+
+#schedule-edit-section {
+  width: 100%;
+  margin: 1rem 0;
 }

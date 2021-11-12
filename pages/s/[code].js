@@ -69,8 +69,8 @@ export default class Code extends React.Component {
     if (typeof(this.schedule) !== 'undefined') {
       for (let x of this.schedule) {
         bal.push(
-          <tr key={x[0]}>
-            <td className={`${x[0] == this.state.nextPeriod[0] ? "period-emphasis" : ""} period-name`}>{translatePeriod[x[0]]}</td>
+          <tr key={this.schedule.indexOf(x)}>
+            <td className={`${this.schedule[(this.schedule.indexOf(x)+1)%this.schedule.length][0] == this.state.nextPeriod[0] && this.schedule[(this.schedule.indexOf(x)+1)%this.schedule.length][1] == this.state.nextPeriod[1] ? "period-emphasis" : ""} period-name`}>{translatePeriod[x[0]]}</td>
             <td className="period-time">{Funcs.getTimeFromMin(x[1], this.settings.timeFormat)}</td>
           </tr>
         )
@@ -102,6 +102,14 @@ export default class Code extends React.Component {
                 {bal}
               </tbody>
             </table>
+          </div>
+        </section>
+        <hr />
+        <section id='schedule-edit-section'>
+          <div>
+            <a href={"/c/" + code} class='schedule-edit-button'>
+              Edit this schedule
+            </a>
           </div>
         </section>
       </main>

@@ -8,7 +8,6 @@ export default function Main() {
       <title>Home - Passiflora</title>
       <main>
         <div className="hero">
-          <img src="/images/hero-photo.jpg" alt="Passiflora" />
           <div className='hero-nav'>
             <a href="/c/000000000000-pe123456lt" className="nav-create-button">CREATE A SCHEDULE</a>
             <a href="https://github.com/literaiiy"><img className='nav-icon invert' src="https://unpkg.com/simple-icons@5.21.1/icons/github.svg" alt="GitHub" /></a>

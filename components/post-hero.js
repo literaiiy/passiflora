@@ -8,7 +8,7 @@ export default class PostHero extends React.Component {
   render() {
     return (
       <div id='post-hero'>
-        <span class="post-hero-text">{this.props.title}</span>
+        <span className="post-hero-text">{this.props.title}</span>
       </div>
     )
   }

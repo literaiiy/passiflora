@@ -50,6 +50,10 @@ export function getTimeFromMin(min, format) {
     const minute = ("" + (min % 60)).padStart(2, '0');
     const ampm = min < 720 ? 'AM' : 'PM';
     return `${hour}:${minute} ${ampm}`
+  } else if (format == 'u') {
+    return `${("" + Math.floor(min / 60)).padStart(2, '0')}:${("" + (min % 60)).padStart(2,'0')}`
+  } else if (format == 'm') {
+    return `${("" + Math.floor(min / 60)).padStart(2, '0')}${("" + (min % 60)).padStart(2,'0')}`
   }
 }
 
@@ -77,4 +81,38 @@ export function getSecFromTime(unix) {
 
 export function formatSecAsHMS(seconds) {
   return new Date(seconds * 1000).toISOString().substr(11, 8)
+}
+
+// Turns a HH:MM string into an integer amount of minutes.
+export function deformatTime(str) {
+  return 60 * +str.slice(0,2) + +str.slice(3,5)
+}
+
+export function getIndexOfArrayInArray(needle, haystack) {
+  for (let i = 0; i < haystack.length; i++) {
+    if (haystack[i][0] == needle[0] && haystack[i][1] == needle[1]) {
+      return i;
+    } 
+  }
+  return -1;
+}
+
+// Variables & Constants
+
+export const translatePeriod = {
+  "a": "A period",
+  'b': 'B period',
+  1: '1st period',
+  2: '2nd period',
+  3: '3rd period',
+  4: '4th period',
+  5: '5th period',
+  6: '6th period',
+  7: '7th period',
+  8: '8th period',
+  9: '9th period',
+  0: '10th period',
+  'l': 'Long break',
+  's': 'Short break',
+  null: "Tomorrow",
 }

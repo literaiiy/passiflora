@@ -3,6 +3,7 @@ $darkerAccent: #bb4667;
 $beige: rgb(255, 254, 243);
 $darkerBeige: rgb(245, 242, 233);
 $notBlack: #2c2c2c;
+$defaultTransition: ease 0.35s;
 
 // Default //
 
@@ -41,15 +42,35 @@ a {
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+
 .hero {
   width: 100%;
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.jpg");
+  // background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.jpg");
   height: 40rem;
   // filter: brightness(0.6);
-  background-size: cover;
+  // background-size: cover;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: $defaultTransition;
+  & > img {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: $defaultTransition;
+    filter: brightness(0.6);
+  }
+  &:hover > img {
+    filter: brightness(0.5)
+  }
 }
 
 section {
@@ -174,7 +195,7 @@ hr {
     font-weight: inherit;
     border: solid 2px $darkerAccent;
     margin-bottom: 0.5rem;
-    transition: ease 0.5s;
+    transition: $defaultTransition;
     &:hover {
       background-color: $darkerAccent;
     }
@@ -194,6 +215,7 @@ hr {
   display: flex;
   height: 3rem;
   justify-content: space-between;
+  z-index: 3;
 }
 
 nav {
@@ -212,7 +234,8 @@ nav {
   font-weight: 600;
   padding: 0.5rem;
   margin: 0.5rem;
-  transition: ease 0.5s;
+  font-size: 1.125rem;
+  transition: $defaultTransition;
   &:hover {
     background-color: white;
     color: $accent;
@@ -320,7 +343,7 @@ nav {
   color: $beige;
   border: solid 2px $darkerAccent;
   margin: 0.5rem;
-  transition: ease 0.5s;
+  transition: $defaultTransition;
   &:hover {
     background-color: $darkerAccent;
   }
@@ -329,4 +352,60 @@ nav {
 #schedule-edit-section {
   width: 100%;
   margin: 1rem 0;
+}
+
+#create-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  & > hr {
+    width: 24rem;
+  }
+}
+
+.create-editable-per-container {
+  font-size: 1.25rem;
+  align-items: center;
+  & > td > span {
+    font-weight: 600;
+    color: $accent;
+  }
+  & > td > input {
+    border: solid 2px $accent;
+    border-radius: 0.4rem;
+    background-color: $beige;
+    width: 14rem;
+    padding: 0.25rem;
+    color: $accent;
+    text-align: center;
+    &:focus {
+      border: solid 2px $darkerAccent;
+      outline: none;
+      color: $darkerAccent;
+      border-radius: 0.4rem;
+    }
+  }
+  & > td > button {
+    background-color: transparent;
+    border: none;
+    color: $notBlack;
+    transition: $defaultTransition;
+    &:hover {
+      filter: invert(0.5);
+    }
+  }
+}
+
+#create-editable-per-table {
+  border-spacing: 1rem 0.25rem;
+}
+
+.create-editable-per-periods {
+
+}
+
+.create-editable-per-settings {
+
 }

@@ -44,23 +44,6 @@ export default class Code extends React.Component {
   render() {
     const code = this.props.asPath.slice(3,)
     let bal = [];
-    const translatePeriod = {
-      "a": "A period",
-      'b': 'B period',
-      1: '1st period',
-      2: '2nd period',
-      3: '3rd period',
-      4: '4th period',
-      5: '5th period',
-      6: '6th period',
-      7: '7th period',
-      8: '8th period',
-      9: '9th period',
-      0: '10th period',
-      'l': 'Long break',
-      's': 'Short break',
-      null: "Tomorrow",
-    }
     
     this.settings = Funcs.decodeConfig(code.slice(code.indexOf("-")+1,))    
     console.log(this.settings)  
@@ -80,14 +63,14 @@ export default class Code extends React.Component {
                 == null && x[0] == this.schedule[this.schedule.length - 1][0]
                         && x[1] == this.schedule[this.schedule.length - 1][1]
                 ? "period-emphasis" : "" } period-name`}
-              > {translatePeriod[x[0]]}
+              > {Funcs.translatePeriod[x[0]]}
             </td>
             <td className="period-time">{Funcs.getTimeFromMin(x[1], this.settings.timeFormat)}</td>
           </tr>
         )
       }
     }
-    
+
   return (
     <div>
       <title>Schedule - Passiflora</title>
@@ -102,7 +85,7 @@ export default class Code extends React.Component {
             </div>
             <div>
               <h2>Next period</h2>
-              <div id='schedule-period-label'>{translatePeriod[this.state.nextPeriod[0]] || "Done for the day!"}</div>
+              <div id='schedule-period-label'>{Funcs.translatePeriod[this.state.nextPeriod[0]] || "Done for the day!"}</div>
               <div id='schedule-period-countdown'>in <b>{Funcs.formatSecAsHMS(this.state.nextPeriod[1] * 60 - Funcs.getSecFromTime(this.state.time)) || ""}</b></div>
             </div>
           </div>
@@ -118,7 +101,7 @@ export default class Code extends React.Component {
         <hr />
         <section id='schedule-edit-section'>
           <div>
-            <a href={"/c/" + code} class='schedule-edit-button'>
+            <a href={"/c/" + code} className='schedule-edit-button'>
               Edit this schedule
             </a>
           </div>

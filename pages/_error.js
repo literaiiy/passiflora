@@ -7,7 +7,7 @@ export default function Error({ statusCode }) {
             <h1>{statusCode}</h1>
             <h2>An error has occured.</h2>
             <p>{ (statusCode == 404) ? "This page wasn't found." : "Oops. Something went wrong. Try again later."}</p>
-            <a class='styled-a' href="/">Back</a>
+            <a className='styled-a' href="/">Back</a>
         </main>
     )
 }

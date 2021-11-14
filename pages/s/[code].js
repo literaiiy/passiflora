@@ -44,10 +44,12 @@ export default class Code extends React.Component {
   render() {
     const code = this.props.asPath.slice(3,)
     let bal = [];
-    
-    this.settings = Funcs.decodeConfig(code.slice(code.indexOf("-")+1,))    
+    let p = code.split('-')
+    console.log(urlPartition)
+
+    this.settings = Funcs.decodeConfig(urlPartition[2])    
     console.log(this.settings)  
-    this.schedule = Funcs.decodeSchedule(code.slice(0, code.indexOf("-")), this.settings.schedule)
+    this.schedule = Funcs.decodeSchedule(urlPartition[0], urlPartition[1])
 
     if (typeof(this.schedule) !== 'undefined') {
       for (let x of this.schedule) {

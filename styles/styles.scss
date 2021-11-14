@@ -394,6 +394,10 @@ nav {
 
 }
 
-.create-editable-per-settings {
-
+#create-editable-per-settings {
+  display: flex;
+  flex-direction: column;
+  & > select {
+    width: 12rem;
+  }
 }

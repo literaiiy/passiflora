@@ -4,6 +4,7 @@ import Nav from "../../components/nav";
 import PeriodSettingsOption from "../../components/period-settings-option";
 import PostHero from "../../components/post-hero";
 import * as Funcs from "../../functions/funcs.js"
+import CopyButton from "../../components/copy-button";
 
 export default class Create extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ export default class Create extends React.Component {
     this.state = {
       url: null,
       schedule: [],
-      config: ['p','l','t']
+      config: ['p','l','t'],
+      clicked: false,
     }
 
     const code = this.props.asPath.slice(3,);
@@ -37,6 +39,14 @@ export default class Create extends React.Component {
     this.state.config[cfg[1]] = cfg[0];
     this.setState({url: this.state.url.slice(0, -3) + this.state.config.join("")})
     console.log(this.state.config)
+  }
+
+  handleCbClick = () => {
+    this.setState({clicked: true})
+    navigator.clipboard.writeText("https://passiflora.literaiiy.me/s/" + this.state.url)
+    setTimeout(() => {
+      this.setState({clicked: false})
+    }, 1500)
   }
 
   componentDidUpdate() {
@@ -73,10 +83,14 @@ export default class Create extends React.Component {
           </section>
           <section>
             <h2>Copy URL</h2>
-            <input  style={{width: "80vw"}} 
-              type="text" 
+            <div className="copy-url">
+            <input
+              className='copy-url-input'
+              type="text"
               value={"https://passiflora.literaiiy.me/s/" + this.state.url}
               readOnly/>
+              <button onClick={this.handleCbClick} className='copy-url-button'>{this.state.clicked ? "Copied!" : "Copy"}</button>
+            </div>
           </section>
         </main>
       </div>

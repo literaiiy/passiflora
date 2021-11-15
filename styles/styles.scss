@@ -160,7 +160,7 @@ hr {
       border-radius: 0.4rem;
       font-weight: inherit;
       background-color: $darkerBeige;
-      &:focus {
+      &:hover {
         border: solid 2px $darkerAccent;
         outline: none;
         color: $darkerAccent;
@@ -368,7 +368,8 @@ nav {
     padding: 0.25rem;
     color: $accent;
     text-align: center;
-    &:focus {
+    transition: $defaultTransition;
+    &:hover {
       border: solid 2px $darkerAccent;
       outline: none;
       color: $darkerAccent;
@@ -397,7 +398,62 @@ nav {
 #create-editable-per-settings {
   display: flex;
   flex-direction: column;
-  & > select {
-    width: 12rem;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    & > label {
+      font-size: 1.15rem;
+      padding: 0.25rem;
+      color: $accent;
+      font-weight: 600;
+    }
+    & > select {
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+      padding: 0.25rem;
+      width: 14rem;
+      color: $accent;
+      background-color: $beige;
+      border-radius: 0.4rem;
+      border: solid 2px $accent;
+      outline: none;
+      transition: $defaultTransition;
+      &:hover {
+        border-color: $darkerAccent;
+      }
+    }
+  } 
+}
+
+.copy-url {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.copy-url-input {
+  width: 30rem;
+  padding: 0.25rem;
+  color: $accent;
+  border: solid 2px $accent;
+  border-radius: 0.4rem;
+  font-size: 1.15rem;
+  text-align: center;
+  background-color: $beige;
+  outline: none;
+}
+
+.copy-url-button {
+  border: solid 2px $darkerAccent;
+  font-weight: 600;
+  border-radius: 0.4rem;
+  text-align: center;
+  padding: 0.25rem;
+  width: 6rem;
+  color: $beige;
+  font-size: 1.15rem;
+  background-color: $accent;
+  transition: $defaultTransition;
+  &:hover {
+    background-color: $darkerAccent;
   }
 }

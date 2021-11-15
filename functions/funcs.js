@@ -136,3 +136,5 @@ export const translatePeriod = {
   's': 'Short break',
   null: "Tomorrow",
 }
+
+export const defaultHref = "/c/000000000000-123456-plt";

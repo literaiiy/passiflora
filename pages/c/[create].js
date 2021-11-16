@@ -64,8 +64,8 @@ export default class Create extends React.Component {
     return (
       <div>
         <title>Create schedule - Passiflora</title>
-        <Nav title="Create a schedule"/>
-        <PostHero/>
+        <Nav/>
+        <PostHero title="Create a schedule"/>
         <main id="create-main">
           <section id='create-editable-per-periods'>
             <h2>Edit schedule</h2>

@@ -25,6 +25,7 @@ body {
   }
   & > footer {
     flex-shrink: 0;
+    padding: 0.5rem;
   }
 }
 
@@ -282,7 +283,7 @@ nav {
 
 #post-hero {
   width: 100%;
-  height: 30rem;
+  height: min(50vh, 30rem);
   background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.jpg");
   background-size: cover;
   display: flex;
@@ -409,7 +410,6 @@ nav {
     }
     & > select {
       font-size: 1.25rem;
-      line-height: 1.25rem;
       padding: 0.25rem;
       width: 14rem;
       color: $accent;
@@ -431,7 +431,7 @@ nav {
 }
 
 .copy-url-input {
-  width: 30rem;
+  width: min(60vw, 30rem);
   padding: 0.25rem;
   color: $accent;
   border: solid 2px $accent;

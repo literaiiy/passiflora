@@ -103,6 +103,7 @@ export function deformatTime(str) {
   return 60 * +str.slice(0,2) + +str.slice(3,5)
 }
 
+// Returns integer index of array needle in parent array haystack
 export function getIndexOfArrayInArray(needle, haystack) {
   for (let i = 0; i < haystack.length; i++) {
     if (haystack[i][0] == needle[0] && haystack[i][1] == needle[1]) {
@@ -115,6 +116,16 @@ export function getIndexOfArrayInArray(needle, haystack) {
 // Capitalizes the character at index 0 of a string
 export function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1)
+}
+
+// Decides period to add to schedule based on last period in schedule
+export function decideNextPeriod(lastElement) {
+  return (
+    [
+      nextList.includes(lastElement[0]) ? "" + nextList[(nextList.indexOf(lastElement[0]) + 1) % 12] : "1",
+      (lastElement[1] + 30) % 1440
+    ]
+  )
 }
 
 // Variables & Constants
@@ -137,4 +148,6 @@ export const translatePeriod = {
   null: "Tomorrow",
 }
 
-export const defaultHref = "/c/000000000000-123456-plt";
+export const defaultCode = "000000000000-123456-plt";
+export const defaultHref = "/c/" + defaultCode;
+const nextList = ['a', 'b', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']

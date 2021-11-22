@@ -5,7 +5,17 @@ $darkerBeige: rgb(245, 242, 233);
 $notBlack: #2c2c2c;
 $defaultTransition: ease 0.35s;
 
-// Default //
+// Media queries
+
+@media (max-width: 420px) {
+  [data-tooltip]::after {
+    margin-left: 0 !important;
+    left: 2rem;
+  }
+}
+
+
+// Default
 
 html, body {
   height: 100%;
@@ -49,10 +59,10 @@ button {
 
 .hero {
   width: 100%;
+  height: min(50vh, 30rem);
   background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.jpg");
   height: 40rem;
-  // filter: brightness(0.6);
-  // background-size: cover;
+  background-size: cover;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -63,7 +73,9 @@ button {
 }
 
 section {
-  padding: 1rem 0;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-text {
@@ -78,13 +90,12 @@ section {
 footer {
   bottom: 0;
   background-color: $darkerBeige;
-  height: 4rem;
   font-size: 1rem;
   text-align: center;
   display: flex;
   & > span {
     color: $darkerAccent;
-    margin: auto;
+    width: 100%;
   }
 }
 
@@ -161,16 +172,19 @@ hr {
       border-radius: 0.4rem;
       font-weight: inherit;
       background-color: $darkerBeige;
+      outline: none;
       &:hover {
         border: solid 2px $darkerAccent;
-        outline: none;
         color: $darkerAccent;
         border-radius: 0.4rem;
       }
     }
-    & > label {
-      padding-bottom: 0.5rem;
-      color: $accent;
+    & > .code-input-label {
+      padding: 0.5rem;
+      & > label {
+        padding: inherit;
+        color: $accent;
+      }
     }
   }
   & > a {
@@ -397,11 +411,15 @@ nav {
 }
 
 #create-editable-per-settings {
+  background-color: $darkerBeige;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   & > div {
     display: flex;
     flex-direction: column;
+    padding: 0.25rem;
     & > label {
       font-size: 1.15rem;
       padding: 0.25rem;
@@ -413,7 +431,7 @@ nav {
       padding: 0.25rem;
       width: 14rem;
       color: $accent;
-      background-color: $beige;
+      background-color: $darkerBeige;
       border-radius: 0.4rem;
       border: solid 2px $accent;
       outline: none;
@@ -453,6 +471,53 @@ nav {
   font-size: 1.15rem;
   background-color: $accent;
   transition: $defaultTransition;
+  &:hover {
+    background-color: $darkerAccent;
+  }
+}
+
+[data-tooltip]::after {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  content: attr(data-tooltip);
+  opacity: 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: $beige;
+  transition: $defaultTransition;
+  font-size: 0.875rem;
+  max-width: min(30rem, 80vw);
+  pointer-events: none;
+  font-style: normal;
+  margin-left: 0.5rem;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+#index-logo {
+  margin: auto;
+  width: 12rem;
+  height: auto;
+}
+
+.add-button {
+  height: 2rem;
+  width: 2rem;
+  background-color: $accent;
+  outline: none;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-align: center;
+  font-family: inherit;
+  background-color: $accent;
+  border-radius: 0.4rem;
+  color: $beige;
+  border: solid 2px $darkerAccent;
+  margin: 0.5rem;
+  transition: $defaultTransition;
+  align-self: center;
   &:hover {
     background-color: $darkerAccent;
   }

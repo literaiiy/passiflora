@@ -16,8 +16,23 @@ export default class CreateEditablePer extends React.Component {
     )
   }
 
-  render() {
+  shiftUp = () => {
+    this.props.updateShiftUp([this.props.period, Funcs.deformatTime(this.state.time)])
+  }
 
+  shiftDown = () => {
+    this.props.updateShiftDown([this.props.period, Funcs.deformatTime(this.state.time)])
+  }
+
+  die = () => {
+    this.props.die([this.props.period, Funcs.deformatTime(this.state.time)])
+  }
+
+  edit() {
+    this.props.edit([this.props.period, Funcs.deformatTime(this.state.time)])
+  }
+
+  render() {
     return (
       <tr className='create-editable-per-container'>
         <td><span>{Funcs.translatePeriod[this.props.period]}</span></td>
@@ -27,12 +42,13 @@ export default class CreateEditablePer extends React.Component {
           }
         }/></td>
         <td>
-          <button><i className="bi bi-caret-up-fill"></i></button>
-          <button><i className="bi bi-caret-down-fill"></i></button>
-          <button><i className="bi bi-x-square-fill"></i></button>
-          <button><i className="bi bi-pencil-fill"></i></button>
+          <button onClick={this.shiftUp}><i className="bi bi-caret-up-fill"></i></button>
+          <button onClick={this.shiftDown}><i className="bi bi-caret-down-fill"></i></button>
+          <button onClick={this.die}><i className="bi bi-x-square-fill"></i></button>
+          <button onClick={this.edit}><i className="bi bi-pencil-fill"></i></button>
         </td>
       </tr>
     )
   }
 }
+

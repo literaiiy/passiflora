@@ -19,7 +19,6 @@ export default class CopyButton extends React.Component {
   render() {
     return (
       <div>
-
         <button onClick={this.handleClick} className='copy-url-button'>{this.state.clicked ? "Copied!" : "Copy"}</button>
       </div>
     )

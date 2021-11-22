@@ -44,7 +44,7 @@ export default class Code extends React.Component {
   render() {
     const code = this.props.asPath.slice(3,)
     let bal = [];
-    let p = code.split('-')
+    let urlPartition = code.split('-')
     console.log(urlPartition)
 
     this.settings = Funcs.decodeConfig(urlPartition[2])    

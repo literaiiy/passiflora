@@ -522,3 +522,18 @@ nav {
     background-color: $darkerAccent;
   }
 }
+
+.period-name-select {
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  width: 10rem;
+  color: $accent;
+  background-color: $darkerBeige;
+  border-radius: 0.4rem;
+  border: solid 2px $accent;
+  outline: none;
+  transition: $defaultTransition;
+  &:hover {
+    border-color: $darkerAccent;
+  }
+}

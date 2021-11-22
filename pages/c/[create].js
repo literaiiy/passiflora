@@ -10,18 +10,15 @@ export default class Create extends React.Component {
   constructor(props) {
     super(props);
 
+    const code = this.props.asPath.slice(3,);
+    let urlPartition = code.split("-")
+
     this.state = {
-      url: null,
-      schedule: [],
-      config: ['p','l','t'],
+      url: code || Funcs.defaultCode,
+      schedule: Funcs.decodeSchedule(urlPartition[0], urlPartition[1]) || [],
+      config: code.slice(-3,).split('') || ['p', 'l', 't'],
       clicked: false,
     }
-
-    const code = this.props.asPath.slice(3,);
-    this.state.url = code;
-    let urlPartition = code.split("-")
-    this.settings = Funcs.decodeConfig(urlPartition[2])
-    this.state.schedule = Funcs.decodeSchedule(urlPartition[0], urlPartition[1])
   }
 
   static getInitialProps({ asPath }) {
@@ -55,37 +52,48 @@ export default class Create extends React.Component {
     }, 1500)
   }
 
-  updateShiftUp = (periodArray) => {
-    let needleMinus = Funcs.getIndexOfArrayInArray(periodArray, this.state.schedule) - 1;
-    if (needleMinus >= 0) {
-      this.setState({
-        schedule: 
-        [...this.state.schedule.slice(0, needleMinus), this.state.schedule[needleMinus + 1],
-        this.state.schedule[needleMinus], ...this.state.schedule.slice(needleMinus + 2)],
-      }, this.masterUpdate)
-    }
-  }
-
-  updateShiftDown = (periodArray) => {
-    let needlePlus = Funcs.getIndexOfArrayInArray(periodArray, this.state.schedule) + 1;
-    if (needlePlus <= this.state.schedule.length - 1) {
+  updateShiftUp = (pos) => {
+    // let needleMinus = Funcs.getIndexOfArrayInArray(periodArray, this.state.schedule) - 1;
+    // if (needleMinus >= 0) {
+    //   this.setState({
+    //     schedule: 
+    //     [...this.state.schedule.slice(0, needleMinus), this.state.schedule[needleMinus + 1],
+    //     this.state.schedule[needleMinus], ...this.state.schedule.slice(needleMinus + 2)],
+    //   }, this.masterUpdate)
+    // }
+    if (pos > 0) {
       this.setState({
         schedule:
-        [...this.state.schedule.slice(0, needlePlus - 1), this.state.schedule[needlePlus],
-      this.state.schedule[needlePlus - 1], ...this.state.schedule.slice(needlePlus + 1)]
+          [...this.state.schedule.slice(0, pos - 1), this.state.schedule[pos],
+          this.state.schedule[pos - 1], ...this.state.schedule.slice(pos + 1)],
       }, this.masterUpdate)
     }
   }
 
-  updateDie = (periodArray) => {
-    const i = Funcs.getIndexOfArrayInArray(periodArray, this.state.schedule);
+  updateShiftDown = (pos) => {
+    // let needlePlus = Funcs.getIndexOfArrayInArray(periodArray, this.state.schedule) + 1;
+    if (pos < this.state.schedule.length - 1) {
+      this.setState({
+        schedule:
+        [...this.state.schedule.slice(0, pos), this.state.schedule[pos + 1],
+      this.state.schedule[pos], ...this.state.schedule.slice(pos + 2)]
+      }, this.masterUpdate)
+    }
+  }
+
+  updateDie = (pos) => {
+    // const i = Funcs.getIndexOfArrayInArray(periodArray, this.state.schedule);
     this.setState({
-      schedule: this.state.schedule.slice(0, i).concat(this.state.schedule.slice(i + 1, this.state.schedule.length))
+      schedule: this.state.schedule.slice(0, pos).concat(this.state.schedule.slice(pos + 1, this.state.schedule.length))
     }, this.masterUpdate)
   }
 
-  updateEdit = () => {
-    
+  updateEdit = (choice, pos) => {
+    console.log(choice)
+    console.log(pos)
+    this.setState({
+      schedule: this.state.schedule.slice(0, pos).concat([[choice, this.state.schedule[pos][1]]]).concat(this.state.schedule.slice(pos + 1, this.state.schedule.length))
+    }, this.masterUpdate)
   }
 
   addPeriod = () => {
@@ -103,13 +111,16 @@ export default class Create extends React.Component {
     for (let x of this.state.schedule) {
       periodList.push(
         <CreateEditablePer 
-        updateHandler={this.updateHandler}
-        updateShiftUp={this.updateShiftUp}
-        updateShiftDown={this.updateShiftDown}
-        die={this.updateDie}
-        period={x[0]} 
-        time={x[1]} 
-        position={Funcs.getIndexOfArrayInArray(x, this.state.schedule)}/>
+          updateHandler={this.updateHandler}
+          updateShiftUp={this.updateShiftUp}
+          updateShiftDown={this.updateShiftDown}
+          updateDie={this.updateDie}
+          updateEdit={this.updateEdit}
+          period={x[0]} 
+          time={x[1]} 
+          // position={Funcs.getIndexOfArrayInArray(x, this.state.schedule)}
+          position={periodList.length}
+        />
       )
     }
 
@@ -130,9 +141,9 @@ export default class Create extends React.Component {
           </section>
           <section id='create-editable-per-settings'>
             <h2>Settings</h2>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["p", "period"],["h", "hour"]]} name="naming-convention"/>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["l", "light"],["d", "dark"]]} name="theme"/>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["t", "12-hour"],["u", "24-hour"]]} name="time-format"/>
+            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["p", "period"],["h", "hour"]]} default={this.state.config[0]} name="naming-convention"/>
+            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["l", "light"],["d", "dark"]]} default={this.state.config[1]} name="theme"/>
+            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["t", "12-hour"],["u", "24-hour"]]} default={this.state.config[2]} name="time-format"/>
           </section>
           <section>
             <h2>Copy schedule URL</h2>

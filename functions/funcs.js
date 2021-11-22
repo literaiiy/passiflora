@@ -120,10 +120,17 @@ export function capitalize(str) {
 
 // Decides period to add to schedule based on last period in schedule
 export function decideNextPeriod(lastElement) {
+  console.log(lastElement)
   return (
     [
-      nextList.includes(lastElement[0]) ? "" + nextList[(nextList.indexOf(lastElement[0]) + 1) % 12] : "1",
-      (lastElement[1] + 30) % 1440
+      typeof lastElement !== "undefined" ?
+        nextList.includes(lastElement[0]) ? 
+          "" + nextList[(nextList.indexOf(lastElement[0]) + 1) % 12] 
+          : "1"
+        : "1"
+      ,
+      typeof lastElement !== "undefined" ?
+        (lastElement[1] + 30) % 1440 : 0
     ]
   )
 }
@@ -146,6 +153,23 @@ export const translatePeriod = {
   'l': 'Long break',
   's': 'Short break',
   null: "Tomorrow",
+}
+
+export const reverseTranslatePeriod = {
+    '10th period': "0",
+    '1st period': "1",
+    '2nd period': "2",
+    '3rd period': "3",
+    '4th period': "4",
+    '5th period': "5",
+    '6th period': "6",
+    '7th period': "7",
+    '8th period': "8",
+    '9th period': "9",
+    'A period': "a",
+    'B period': "b",
+    'Long break': "l",
+    'Short break': "s",
 }
 
 export const defaultCode = "000000000000-123456-plt";

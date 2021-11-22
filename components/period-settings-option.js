@@ -4,13 +4,14 @@ import * as Funcs from "../functions/funcs.js"
 export default class PeriodSettingsOption extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       config: ['p','l','t']
     }
   }
 
   handleChange = (e) => {
-    let configConvert = {
+    const configConvert = {
       "period": ["p", 0],
       "hour": ["h", 0],
       "light": ["l", 1],
@@ -28,6 +29,15 @@ export default class PeriodSettingsOption extends React.Component {
   render() {
     let array = [];
 
+    const reverseConfigConvert = {
+      "p": "period",
+      "h": "hour",
+      "l": "light",
+      "d": "dark",
+      "t": "12-hour",
+      "u": "24-hour",
+    }
+
     for (let x of this.props.selects) {
       array.push(
         <option name={x[0]} value={x[1]}>{Funcs.capitalize(x[1])}</option>
@@ -37,7 +47,7 @@ export default class PeriodSettingsOption extends React.Component {
     return (
       <div>
         <label htmlFor={this.props.name}>{Funcs.capitalize(this.props.name.replace("-", " "))}</label>
-        <select onChange={this.handleChange} name={this.props.name}>
+        <select onChange={this.handleChange} name={this.props.name} value={reverseConfigConvert[this.props.default]}>
           {array}
         </select>
       </div>

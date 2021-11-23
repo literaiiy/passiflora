@@ -21,7 +21,7 @@ export default class Footer extends React.Component {
             </div>
           </div>
           <div id='footer-links'>
-            <div><a className='styled-a' href="">Create a schedule</a></div>
+            <div><a className='styled-a' href={Funcs.defaultHref}>Create a schedule</a></div>
             <div><a className='styled-a' href="/tos">Terms of Service</a></div>
             <div><a className='styled-a' href="/privacy">Privacy Policy</a></div>
           </div>

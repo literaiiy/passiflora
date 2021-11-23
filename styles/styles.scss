@@ -7,10 +7,19 @@ $defaultTransition: ease 0.35s;
 
 // Media queries
 
-@media (max-width: 420px) {
+@media (max-width: 600px) {
   [data-tooltip]::after {
     margin-left: 0 !important;
     left: 2rem;
+  }
+  #footer-lower {
+    flex-direction: column !important;
+  }
+  .period-name-select {
+    width: auto !important;
+  }
+  .create-editable-per-container > td > input {
+    width: auto !important;
   }
 }
 
@@ -124,6 +133,7 @@ footer {
   justify-content: space-between;
   flex-direction: column;
   & > .footer-logo-text {
+    gap: 0.5rem;
     display: flex;
     flex-direction: row;
     & > img {
@@ -211,7 +221,7 @@ header {
 }
 
 hr {
-  width: 14rem;
+  width: min(80vw, 14rem);
   border-top: 1px solid $notBlack;
 }
 
@@ -331,7 +341,7 @@ nav {
   align-items: center;
   text-align: center;
   & > hr {
-    width: 24rem;
+    width: min(80vw, 24rem);
   }
 }
 

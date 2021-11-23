@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
         <div id='footer-lower'>
           <div id='footer-left'>
             <div class='footer-logo-text'>
-              <img src="/images/passi-icon.svg" alt="Passiflora icon"/>
+              <img src="/images/passi-icon-white.svg" alt="Passiflora icon"/>
               <span>Passiflora</span>
             </div>
             <div>

@@ -1,8 +1,4 @@
 import Nav from "../../components/nav";
-import Clock from "../../components/clock";
-import { useRouter } from "next/router";
-import ScheduleView from "../../components/schedule-view";
-import { withRouter } from "next/router"
 import React, { useState, useEffect } from 'react';
 import PostHero from "../../components/post-hero";
 import * as Funcs from "../../functions/funcs.js"
@@ -65,7 +61,7 @@ export default class Code extends React.Component {
                 == null && x[0] == this.schedule[this.schedule.length - 1][0]
                         && x[1] == this.schedule[this.schedule.length - 1][1]
                 ? "period-emphasis" : "" } period-name`}
-              > {Funcs.translatePeriod[x[0]]}
+              > {Funcs.clientTranslatePeriod(x[0], this.settings.namingScheme)}
             </td>
             <td className="period-time">{Funcs.getTimeFromMin(x[1], this.settings.timeFormat)}</td>
           </tr>
@@ -87,7 +83,7 @@ export default class Code extends React.Component {
             </div>
             <div>
               <h2>Next period</h2>
-              <div id='schedule-period-label'>{Funcs.translatePeriod[this.state.nextPeriod[0]] || "Done for the day!"}</div>
+              <div id='schedule-period-label'>{Funcs.clientTranslatePeriod(this.state.nextPeriod[0], this.settings.namingScheme) || "Done for the day!"}</div>
               <div id='schedule-period-countdown'>in <b>{Funcs.formatSecAsHMS(this.state.nextPeriod[1] * 60 - Funcs.getSecFromTime(this.state.time)) || ""}</b></div>
             </div>
           </div>

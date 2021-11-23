@@ -1,9 +1,9 @@
 // Returns object of configuration
 export function decodeConfig(url) {
   return {
-    namingScheme: ['p','h','c','t','i'].includes(url[0]) ? url[0] : null,
-    theme: ['d','l','s','f'].includes(url[1]) ? url[1] : null,
-    timeFormat: ['t','u','m'].includes(url[2]) ? url[2] : null,
+    namingScheme: reverseConfigConvert.hasOwnProperty(url[0]) ? url[0] : null,
+    theme: reverseConfigConvert.hasOwnProperty(url[1]) ? url[1] : null,
+    timeFormat: reverseConfigConvert.hasOwnProperty(url[2]) ? url[2] : null,
   }
 }
 
@@ -84,6 +84,7 @@ export function findNextPeriod(time, sch) {
       if (x[1] > timeInMin) {
         return nextPeriod;
       }
+      return sch[0];
     }
   }
   return [null, null];
@@ -135,43 +136,83 @@ export function decideNextPeriod(lastElement) {
   )
 }
 
+// translatePeriod but for the client-side, allowing for different naming conventions
+export function clientTranslatePeriod(per, f) {
+  const format = per !== "l" && per !== "s" ? reverseConfigConvert[f] : '';
+  const period = translatePeriod[per];
+  return `${period} ${format}`;
+}
+
 // Variables & Constants
 
 export const translatePeriod = {
-  "a": "A period",
-  'b': 'B period',
-  1: '1st period',
-  2: '2nd period',
-  3: '3rd period',
-  4: '4th period',
-  5: '5th period',
-  6: '6th period',
-  7: '7th period',
-  8: '8th period',
-  9: '9th period',
-  0: '10th period',
+  "a": "A",
+  'b': 'B',
+  1: '1st',
+  2: '2nd',
+  3: '3rd',
+  4: '4th',
+  5: '5th',
+  6: '6th',
+  7: '7th',
+  8: '8th',
+  9: '9th',
+  0: '10th',
   'l': 'Long break',
   's': 'Short break',
-  null: "Tomorrow",
 }
 
 export const reverseTranslatePeriod = {
-    '10th period': "0",
-    '1st period': "1",
-    '2nd period': "2",
-    '3rd period': "3",
-    '4th period': "4",
-    '5th period': "5",
-    '6th period': "6",
-    '7th period': "7",
-    '8th period': "8",
-    '9th period': "9",
-    'A period': "a",
-    'B period': "b",
-    'Long break': "l",
-    'Short break': "s",
+  '10th': "0",
+  '1st': "1",
+  '2nd': "2",
+  '3rd': "3",
+  '4th': "4",
+  '5th': "5",
+  '6th': "6",
+  '7th': "7",
+  '8th': "8",
+  '9th': "9",
+  'A': "a",
+  'B': "b",
+  'Long break': "l",
+  'Short break': "s",
+}
+
+export const configConvert = {
+  "period": ["p", 0],
+  "hour": ["h", 0],
+  "class": ["c", 0],
+  "task": ["a", 0],
+  "light": ["l", 1],
+  "dark": ["d", 1],
+  "solarized": ["s", 1],
+  "forest": ["f", 1],
+  "12-hour": ["t", 2],
+  "24-hour": ["u", 2],
+  "military": ["m", 2]
+}
+
+export const reverseConfigConvert = {
+  "p": "period",
+  "h": "hour",
+  "c": "class",
+  "a": "task",
+  "l": "light",
+  "d": "dark",
+  "s": "solarized",
+  "f": "forest",
+  "t": "12-hour",
+  "u": "24-hour",
+  "m": "military"
 }
 
 export const defaultCode = "000000000000-123456-plt";
+
 export const defaultHref = "/c/" + defaultCode;
-const nextList = ['a', 'b', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+export const version = "v0.1.3"
+
+const nextList = [
+  'a', 'b', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
+]

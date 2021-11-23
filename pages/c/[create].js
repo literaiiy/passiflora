@@ -141,9 +141,9 @@ export default class Create extends React.Component {
           </section>
           <section id='create-editable-per-settings'>
             <h2>Settings</h2>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["p", "period"],["h", "hour"]]} default={this.state.config[0]} name="naming-convention"/>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["l", "light"],["d", "dark"]]} default={this.state.config[1]} name="theme"/>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["t", "12-hour"],["u", "24-hour"]]} default={this.state.config[2]} name="time-format"/>
+            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["p", "period"],["h", "hour"], ["c", "class"], ["a", "task"]]} default={this.state.config[0]} name="naming-convention"/>
+            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["l", "light"], ["d", "dark"], ["s", "solarized"], ["f", "forest"]]} default={this.state.config[1]} name="theme"/>
+            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["t", "12-hour"], ["u", "24-hour"], ["m", "military"]]} default={this.state.config[2]} name="time-format"/>
           </section>
           <section>
             <h2>Copy schedule URL</h2>

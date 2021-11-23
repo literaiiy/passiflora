@@ -35,7 +35,6 @@ body {
   }
   & > footer {
     flex-shrink: 0;
-    padding: 0.5rem;
   }
 }
 
@@ -87,15 +86,78 @@ section {
   text-shadow: 0.25rem 0.25rem 0.125rem rgba(64, 64, 64, 0.75);
 }
 
+
+
 footer {
   bottom: 0;
-  background-color: $darkerBeige;
   font-size: 1rem;
-  text-align: center;
   display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  text-align: left !important;
   & > span {
     color: $darkerAccent;
     width: 100%;
+  }
+}
+
+#footer-versioning {
+  font-size: 4rem;
+  line-height: 2.5rem;
+  font-weight: 900;
+  color: $darkerAccent;
+}
+
+#footer-lower {
+  background-color: $darkerAccent;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+#footer-left {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  & > .footer-logo-text {
+    display: flex;
+    flex-direction: row;
+    & > img {
+      height: 3rem;
+    }
+    & > span {
+      font-weight: 600;
+      font-size: 2rem;
+      align-self: center;
+    }
+  }
+}
+
+#footer-links {
+  flex: 1;
+  & > div {
+    padding: 0.25rem 0rem;
+  }
+}
+
+#footer-logos {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  & > a {
+    & > .footer-github-logo {
+      height: 2.75rem;
+    }
+    & > .footer-nextjs-logo {
+      height: 3rem;
+    }
+    & > .footer-vercel-logo {
+      height: 1.75rem;
+    }
   }
 }
 
@@ -135,12 +197,17 @@ header {
   background: $darkerBeige;
 }
 
-.nav-title {
-  color: $darkerAccent;
-  font-family: "Crimson Pro";
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 3rem;
+.nav-logo {
+  display: flex;
+  flex-direction: row;
+  & > span {
+    color: $darkerAccent;
+    font-family: "Crimson Pro";
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2rem;
+    align-self: center;
+  }
 }
 
 hr {

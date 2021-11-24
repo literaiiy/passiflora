@@ -21,7 +21,7 @@ export default function Main() {
             Passiflora is a customizable and minimalist time organization application used to easily manage schedules and routines for work, school, day-to-day activities, and much more.
           </p>
           <p>
-            To get started, either create a schedule or enter the code for a previously-existing one to track it.
+            To get started, either create a schedule or enter the code for a previously existing one to track it.
           </p>
         </section>
         <SelectCreate />

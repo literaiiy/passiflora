@@ -5,17 +5,20 @@ import PeriodSettingsOption from "../../components/period-settings-option";
 import PostHero from "../../components/post-hero";
 import * as Funcs from "../../functions/funcs.js"
 import CopyButton from "../../components/copy-button";
+import PassiAlert from "../../components/passi-alert";
 
 export default class Create extends React.Component {
   constructor(props) {
     super(props);
 
-    const code = this.props.asPath.slice(3,);
-    let urlPartition = code.split("-")
+    let code = this.props.asPath.slice(3,);
+    // let urlPartition = code.split("-")
+    this.invalidCode = !Funcs.isLegitSchedule(code)
+    code = Funcs.defaultCode
 
     this.state = {
       url: code || Funcs.defaultCode,
-      schedule: Funcs.decodeSchedule(urlPartition[0], urlPartition[1]) || [],
+      schedule: Funcs.decodeSchedule(code) || [],
       config: code.slice(-3,).split('') || ['p', 'l', 't'],
       clicked: false,
     }
@@ -128,8 +131,9 @@ export default class Create extends React.Component {
       <div>
         <title>Create schedule - Passiflora</title>
         <Nav/>
-        <PostHero title="Create a schedule"/>
+        <PostHero title="Create a schedule"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
         <main id="create-main">
+          <PassiAlert display={this.invalidCode} title="Alert" message="The code you entered was invalid, so you were redirected to the default schedule creation code."/>
           <section id='create-editable-per-periods'>
             <h2>Edit schedule</h2>
             <table id='create-editable-per-table'>
@@ -137,7 +141,7 @@ export default class Create extends React.Component {
                 {periodList}
               </tbody>
             </table>
-            <button onClick={this.addPeriod}className="add-button">+</button>
+            <button onClick={this.addPeriod} className="add-button">+</button>
           </section>
           <section id='create-editable-per-settings'>
             <h2>Settings</h2>

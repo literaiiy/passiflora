@@ -1,5 +1,25 @@
+// Checks if schedule follows formatting rules
+export function isLegitSchedule(string) {
+  const sections = string.split('-')
+  if (sections.length != 3 || sections[2].length != 3) { return false }
+  if (sections[0].length != 2 * sections[1].length) { return false }
+  for (let x of sections[0].match(/(..?)/g)) {
+    if (base64ParseInt(x) >= 1440) { return false }
+  }
+  const periodLetters = Object.keys(translatePeriod)
+  for (let y of sections[1]) {
+    if (!periodLetters.includes(y)) { return false }
+  }
+  for (let z of sections[2]) {
+    if (z !== sections[2][configAvailable[z]] ) { return false }
+  }
+  return true;
+}
+
+
 // Returns object of configuration
 export function decodeConfig(url) {
+  if (!url) {return null}
   return {
     namingScheme: reverseConfigConvert.hasOwnProperty(url[0]) ? url[0] : null,
     theme: reverseConfigConvert.hasOwnProperty(url[1]) ? url[1] : null,
@@ -8,17 +28,24 @@ export function decodeConfig(url) {
 }
 
 // Returns object of periods and their time occurences
-export function decodeSchedule(url, config) {
-  let decodedSchedule = [];
-  if (url.length != config.length * 2) {return null}
-  let counter = 0;
-  for (let x of url.match(/(..?)/g)) { // Iterates through, counts, and decodes 2-char pairs
-      decodedSchedule.push([config[counter], base64ParseInt(x)]);
+export function decodeSchedule(code) {
+  // if (!url || !config) {return null}
+  // if (url.length != config.length * 2) {console.log("FUCK1!"); return null}
+  
+  let decodedSchedule;
+
+  if (isLegitSchedule(code)) {
+    decodedSchedule = [];
+    let counter = 0;
+    for (let x of code.split("-")[0].match(/(..?)/g)) { // Iterates through, counts, and decodes 2-char pairs
+      decodedSchedule.push([code.split("-")[1][counter], base64ParseInt(x)]);
       counter++;
+    }
+    decodedSchedule = decodedSchedule.sort((a,b) => {return a[1] - b[1]})
   }
-  if (!validateScheduleInput(decodedSchedule)) {return null}
-  decodedSchedule = decodedSchedule.sort((a,b) => {return a[1] - b[1]})
-  return decodedSchedule;
+  // if (!validateScheduleInput(decodedSchedule)) {console.log("FUCK2!"); return null}
+  
+  return decodedSchedule || null;
 }
 
 // Encodes schedule into schedule string and config-schedule string.
@@ -193,6 +220,20 @@ export const configConvert = {
   "military": ["m", 2]
 }
 
+export const configAvailable = {
+  "p": 0,
+  "h": 0,
+  "c": 0,
+  "a": 0,
+  "l": 1,
+  "d": 1,
+  "s": 1,
+  "f": 1,
+  "t": 2,
+  "u": 2,
+  "m": 2,
+}
+
 export const reverseConfigConvert = {
   "p": "period",
   "h": "hour",
@@ -211,7 +252,7 @@ export const defaultCode = "000000000000-123456-plt";
 
 export const defaultHref = "/c/" + defaultCode;
 
-export const version = "v0.1.3"
+export const version = "v0.1.3-beta"
 
 const nextList = [
   'a', 'b', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'

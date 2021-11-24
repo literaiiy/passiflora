@@ -2,10 +2,16 @@ import Nav from "../../components/nav";
 import React, { useState, useEffect } from 'react';
 import PostHero from "../../components/post-hero";
 import * as Funcs from "../../functions/funcs.js"
+import InvalidSchedule from "../../components/invalid-schedule";
 
 export default class Code extends React.Component {
   constructor(props) {
     super(props); 
+
+    this.code = this.props.asPath.slice(3,)
+    this.settings = Funcs.decodeConfig(this.code.split('-')[2])    
+    this.schedule = Funcs.decodeSchedule(this.code)
+
     this.state = {
       time: new Date(),
       nextPeriod: [null, null],
@@ -38,16 +44,17 @@ export default class Code extends React.Component {
   }
 
   render() {
-    const code = this.props.asPath.slice(3,)
-    let bal = [];
-    let urlPartition = code.split('-')
-    console.log(urlPartition)
+    let bal = []
 
-    this.settings = Funcs.decodeConfig(urlPartition[2])    
-    console.log(this.settings)  
-    this.schedule = Funcs.decodeSchedule(urlPartition[0], urlPartition[1])
+    // Set as invalid schedule if not a legit schedule
+    if (!Funcs.isLegitSchedule(this.code)) { 
+      setTimeout(() => {clearInterval(this.timer)}, 0)
+      return (
+        <InvalidSchedule code={this.code}/>
+      )
+    }
 
-    if (typeof(this.schedule) !== 'undefined') {
+    if (this.schedule) {
       for (let x of this.schedule) {
         bal.push(
           <tr key={this.schedule.indexOf(x)}>
@@ -73,7 +80,7 @@ export default class Code extends React.Component {
     <div>
       <title>Schedule - Passiflora</title>
       <Nav title="View a schedule"/>
-      <PostHero title={code}/>
+      <PostHero title={this.code}/>
       <main id='schedule-main'>
         <section id='schedule-sections'>
           <div id="schedule-sections-left">
@@ -99,7 +106,7 @@ export default class Code extends React.Component {
         <hr />
         <section id='schedule-edit-section'>
           <div>
-            <a href={"/c/" + code} className='schedule-edit-button'>
+            <a href={"/c/" + this.code} className='schedule-edit-button'>
               Edit this schedule
             </a>
           </div>

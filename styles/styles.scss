@@ -614,3 +614,24 @@ nav {
     border-color: $darkerAccent;
   }
 }
+
+.passi-alert {
+  border: 2px solid $darkerAccent;
+  border-radius: 1.2rem;
+  background-color: $beige;
+  max-width: min(80vh, 24rem);
+  margin: 1rem;
+  padding: 0.5rem;
+  transition: 1.5s ease;
+  & > p {
+    color: $accent;
+  }
+}
+
+.opacity-fade {
+  opacity: 0;
+}
+
+.display-none {
+  display: none;
+}

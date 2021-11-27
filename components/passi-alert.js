@@ -23,7 +23,7 @@ export default class PassiAlert extends React.Component {
             })
           }, 1500
         )
-      }, 2500
+      }, 5000
     );
   }
 

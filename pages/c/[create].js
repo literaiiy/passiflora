@@ -14,7 +14,7 @@ export default class Create extends React.Component {
     let code = this.props.asPath.slice(3,);
     // let urlPartition = code.split("-")
     this.invalidCode = !Funcs.isLegitSchedule(code)
-    code = Funcs.defaultCode
+    if (!Funcs.isLegitSchedule(code)) { code = Funcs.defaultCode }
 
     this.state = {
       url: code || Funcs.defaultCode,
@@ -111,6 +111,7 @@ export default class Create extends React.Component {
 
   render() {
     let periodList = [];
+    console.log(this.state.schedule)
     for (let x of this.state.schedule) {
       periodList.push(
         <CreateEditablePer 
@@ -133,7 +134,7 @@ export default class Create extends React.Component {
         <Nav/>
         <PostHero title="Create a schedule"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
         <main id="create-main">
-          <PassiAlert display={this.invalidCode} title="Alert" message="The code you entered was invalid, so you were redirected to the default schedule creation code."/>
+          <PassiAlert display={this.invalidCode} title="Alert" message="The code you entered was invalid, so you were given the default schedule to edit."/>
           <section id='create-editable-per-periods'>
             <h2>Edit schedule</h2>
             <table id='create-editable-per-table'>
@@ -145,9 +146,35 @@ export default class Create extends React.Component {
           </section>
           <section id='create-editable-per-settings'>
             <h2>Settings</h2>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["p", "period"],["h", "hour"], ["c", "class"], ["a", "task"]]} default={this.state.config[0]} name="naming-convention"/>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["l", "light"], ["d", "dark"], ["s", "solarized"], ["f", "forest"]]} default={this.state.config[1]} name="theme"/>
-            <PeriodSettingsOption updateHandler={this.updateHandler2} selects={[["t", "12-hour"], ["u", "24-hour"], ["m", "military"]]} default={this.state.config[2]} name="time-format"/>
+            <PeriodSettingsOption 
+              updateHandler={this.updateHandler2} 
+              selects={[["p", "period"],["h", "hour"], ["c", "class"], ["a", "task"]]}
+              default={this.state.config[0]} 
+              name="naming-convention"
+            />
+            <PeriodSettingsOption 
+              updateHandler={this.updateHandler2} 
+              selects={
+                [
+                  ["l", "light"], 
+                  ["d", "dark"], 
+                  ["o", "oceanic"], 
+                  ["f", "forest"],
+                  ["r", "aurora"],
+                  ["v", "velvet"],
+                  ["w", "wintertide"],
+                  ["y", "vineyard"]
+                ]
+              }
+              default={this.state.config[1]} 
+              name="theme"
+            />
+            <PeriodSettingsOption 
+              updateHandler={this.updateHandler2}
+              selects={[["t", "12-hour"], ["u", "24-hour"], ["m", "military"]]}
+              default={this.state.config[2]} 
+              name="time-format"
+            />
           </section>
           <section>
             <h2>Copy schedule URL</h2>

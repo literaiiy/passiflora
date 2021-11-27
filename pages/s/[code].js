@@ -15,6 +15,7 @@ export default class Code extends React.Component {
     this.state = {
       time: new Date(),
       nextPeriod: [null, null],
+      theme: Funcs.reverseConfigConvert[this.settings.theme],
     }
   }
 
@@ -77,7 +78,7 @@ export default class Code extends React.Component {
     }
 
   return (
-    <div>
+    <div className={`${this.state.theme}-theme`}>
       <title>Schedule - Passiflora</title>
       <Nav title="View a schedule"/>
       <PostHero title={this.code}/>

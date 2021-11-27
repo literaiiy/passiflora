@@ -5,6 +5,41 @@ $darkerBeige: rgb(245, 242, 233);
 $notBlack: #2c2c2c;
 $defaultTransition: ease 0.35s;
 
+$darkModeBlack: #202020;
+$darkModeAccent: #eeeeee;
+$darkModeAccent2: white;
+$darkModeDarkerAccent: #b8b8b8;
+
+$forestBg: rgb(11, 32, 11);
+$forestAccent: #B6C197;
+$forestAccent2: #e7f5d4;
+$forestDarkerAccent: #306B34;
+
+$oceanicBg: #ADCAD6;
+$oceanicAccent: #33658A;
+$oceanicAccent2: #161f27;
+$oceanicDarkerAccent: #2F4858;
+
+$auroraBg: #00001a;
+$auroraAccent: #98eb71;
+$auroraAccent2: #a1e2eb;
+$auroraDarkerAccent: #8868b1;
+
+$velvetBg: #DCE0D9;
+$velvetAccent: #6B0F1A;
+$velvetAccent2: #8f5555;
+$velvetDarkerAccent: #3f0d29;
+
+$wintertideBg: #4E3D42;
+$wintertideAccent: #E3DBDB;
+$wintertideAccent2: #C9D5B5;
+$wintertideDarkerAccent: #a19699;
+
+$vineyardBg: #dac4fd;
+$vineyardAccent: #41656e;
+$vineyardAccent2: #5e5fa8;
+$vineyardDarkerAccent: #220C10;
+
 // Media queries
 
 @media (max-width: 600px) {
@@ -12,15 +47,347 @@ $defaultTransition: ease 0.35s;
     margin-left: 0 !important;
     left: 2rem;
   }
-  #footer-lower {
+  footer {
     flex-direction: column !important;
-    gap: 0 !important;
+    height: auto !important;
   }
   .period-name-select {
     width: auto !important;
   }
   .create-editable-per-container > td > input {
     width: auto !important;
+  }
+}
+
+// Theming
+
+.dark-theme {
+  & #post-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-dark.jpg")
+  }
+  & nav {
+    background-color: $darkModeBlack;
+    & .nav-title {
+      color: $darkModeAccent;
+    }
+    & .nav-icon {
+      filter: brightness(4);
+    }
+    & #github-icon {
+      filter: invert(0.95);
+    }
+  }
+  & main {
+    background-color: $darkModeBlack;
+  }
+  & h1, h2, h3, h4, h5 {
+    color: $darkModeDarkerAccent;
+  }
+  & .period-emphasis {
+    background-color: rgba(256,256,256,0.08)
+  }
+  & hr {
+    border-color: $darkModeAccent2;
+  }
+  & .period-name {
+    color: $darkModeDarkerAccent !important;
+  }
+  & .period-time {
+    color: $darkModeAccent !important;
+  }
+  & #schedule-period-label, #schedule-clock, #schedule-period-countdown {
+    color: $darkModeAccent2 !important;
+  }
+  & .schedule-edit-button {
+    background-color: $darkModeAccent;
+    border-color: $darkModeDarkerAccent;
+    color: $darkModeBlack;
+    &:hover {
+      background-color: $darkModeDarkerAccent;
+    }
+  }
+}
+
+.forest-theme {
+  & #post-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-forest.jpg")
+  }
+  & nav {
+    background-color: $forestBg;
+    & .nav-title {
+      color: $forestAccent;
+    }
+    & .nav-icon {
+      filter: hue-rotate(150deg) saturate(0.5);
+    }
+    & #github-icon {
+      filter: invert(0.95);
+    }
+  }
+  & .period-emphasis {
+    background-color: rgba(256,256,256,0.08)
+  }
+  & hr {
+    border-color: $forestAccent2;
+  }
+  & main {
+    background-color: $forestBg;
+  }
+  & h1, h2, h3, h4, h5 {
+    color: $forestDarkerAccent;
+  }
+  & .period-name {
+    color: $forestDarkerAccent !important;
+  }
+  & .period-time {
+    color: $forestAccent !important;
+  }
+  & #schedule-period-label, #schedule-clock, #schedule-period-countdown {
+    color: $forestAccent2 !important;
+  }
+  & .schedule-edit-button {
+    background-color: $forestAccent;
+    border-color: $forestDarkerAccent;
+    color: $notBlack;
+    &:hover {
+      background-color: $forestDarkerAccent;
+    }
+  }
+}
+
+.oceanic-theme {
+  & #post-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-oceanic.jpg")
+  }
+  & nav {
+    background-color: $oceanicBg;
+    & .nav-title {
+      color: $oceanicAccent;
+    }
+    & .nav-icon {
+      filter: hue-rotate(240deg) saturate(0.8);
+    }
+  }
+  & .period-emphasis {
+    background-color: rgba(0,0,0,0.1)
+  }
+  & hr {
+    border-color: $oceanicAccent2;
+  }
+  & main {
+    background-color: $oceanicBg;
+  }
+  & h1, h2, h3, h4, h5 {
+    color: $oceanicDarkerAccent;
+  }
+  & .period-name {
+    color: $oceanicDarkerAccent !important;
+  }
+  & .period-time {
+    color: $oceanicAccent !important;
+  }
+  & #schedule-period-label, #schedule-clock, #schedule-period-countdown {
+    color: $oceanicAccent2 !important;
+  }
+  & .schedule-edit-button {
+    background-color: $oceanicAccent;
+    border-color: $oceanicDarkerAccent;
+    color: $beige;
+    &:hover {
+      background-color: $oceanicDarkerAccent;
+    }
+  }
+}
+
+.aurora-theme {
+  & #post-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-aurora.jpg");
+    background-position: center;
+  }
+  & .post-hero-text {
+    text-shadow: $auroraAccent 0.2rem 0.2rem 0.5rem;
+  }
+  & nav {
+    background-color: $auroraBg;
+    & .nav-title {
+      background: linear-gradient(45deg, $auroraAccent, $auroraAccent2, $auroraDarkerAccent);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    & .nav-icon {
+      filter: hue-rotate(280deg);
+    }
+    & #github-icon {
+      filter: invert(1)
+    }
+  }
+  & .period-emphasis {
+    background-color: rgba(256,256,256,0.08)
+  }
+  & hr {
+    border-color: $auroraAccent2;
+  }
+  & main {
+    background-color: $auroraBg;
+  }
+  & h1, h2, h3, h4, h5 {
+    color: $auroraDarkerAccent;
+  }
+  & .period-name {
+    color: $auroraDarkerAccent !important;
+  }
+  & .period-time {
+    color: $auroraAccent !important;
+  }
+  & #schedule-period-label, #schedule-clock, #schedule-period-countdown {
+    color: $auroraAccent2 !important;
+  }
+  & .schedule-edit-button {
+    background-color: $auroraAccent;
+    border-color: $auroraDarkerAccent;
+    color: $auroraDarkerAccent;
+    &:hover {
+      background-color: $auroraDarkerAccent;
+      color: $auroraAccent2;
+    }
+  }
+}
+
+.velvet-theme { 
+  & #post-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-velvet.jpg");
+    background-position: center;
+  }
+  & nav {
+    background-color: $velvetBg;
+    & .nav-title {
+      color: $velvetDarkerAccent;
+    }
+    & .nav-icon {
+      filter: hue-rotate(20deg) saturate(0.8) brightness(0.5);
+    }
+  }
+  & .period-emphasis {
+    background-color: rgba(0,0,0,0.1)
+  }
+  & hr {
+    border-color: $velvetAccent2;
+  }
+  & main {
+    background-color: $velvetBg;
+  }
+  & h1, h2, h3, h4, h5 {
+    color: $velvetDarkerAccent;
+  }
+  & .period-name {
+    color: $velvetDarkerAccent !important;
+  }
+  & .period-time {
+    color: $velvetAccent !important;
+  }
+  & #schedule-period-label, #schedule-clock, #schedule-period-countdown {
+    color: $velvetAccent2 !important;
+  }
+  & .schedule-edit-button {
+    background-color: $velvetAccent;
+    border-color: $velvetDarkerAccent;
+    color: $velvetBg;
+    &:hover {
+      background-color: $velvetDarkerAccent;
+    }
+  }
+}
+
+.wintertide-theme {
+  & #post-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-wintertide.jpg");
+    background-position: center;
+  }
+  & nav {
+    background-color: $wintertideBg;
+    & .nav-title {
+      color: $wintertideDarkerAccent;
+    }
+    & .nav-icon {
+      filter: hue-rotate(50deg) saturate(0.2) brightness(2);
+    }
+    & #github-icon {
+      filter: invert(1)
+    }
+  }
+  & .period-emphasis {
+    background-color: rgba(256,256,256,0.07)
+  }
+  & hr {
+    border-color: $wintertideAccent2;
+  }
+  & main {
+    background-color: $wintertideBg;
+  }
+  & h1, h2, h3, h4, h5 {
+    color: $wintertideDarkerAccent;
+  }
+  & .period-name {
+    color: $wintertideDarkerAccent !important;
+  }
+  & .period-time {
+    color: $wintertideAccent !important;
+  }
+  & #schedule-period-label, #schedule-clock, #schedule-period-countdown {
+    color: $wintertideAccent2 !important;
+  }
+  & .schedule-edit-button {
+    background-color: $wintertideAccent;
+    border-color: $wintertideDarkerAccent;
+    color: $wintertideBg;
+    &:hover {
+      background-color: $wintertideDarkerAccent;
+    }
+  }
+}
+
+.vineyard-theme {
+  & #post-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-vineyard.jpg");
+    background-position: center;
+  }
+  & nav {
+    background-color: $vineyardBg;
+    & .nav-title {
+      color: $vineyardDarkerAccent;
+    }
+    & .nav-icon {
+      filter: hue-rotate(190deg) saturate(0.2) brightness(1);
+    }
+  }
+  & .period-emphasis {
+    background-color: rgba(256,256,256,0.07)
+  }
+  & hr {
+    border-color: $vineyardAccent2;
+  }
+  & main {
+    background-color: $vineyardBg;
+  }
+  & h1, h2, h3, h4, h5 {
+    color: $vineyardDarkerAccent;
+  }
+  & .period-name {
+    color: $vineyardDarkerAccent !important;
+  }
+  & .period-time {
+    color: $vineyardAccent !important;
+  }
+  & #schedule-period-label, #schedule-clock, #schedule-period-countdown {
+    color: $vineyardAccent2 !important;
+  }
+  & .schedule-edit-button {
+    background-color: $vineyardAccent;
+    border-color: $vineyardDarkerAccent;
+    color: $vineyardBg;
+    &:hover {
+      background-color: $vineyardDarkerAccent;
+    }
   }
 }
 
@@ -95,37 +462,23 @@ section {
   text-shadow: 0.25rem 0.25rem 0.125rem rgba(64, 64, 64, 0.75);
 }
 
-
-
 footer {
   bottom: 0;
+  height: 10rem;
   font-size: 1rem;
   display: flex;
   margin: 0;
-  padding: 0;
-  flex-direction: column;
   text-align: left !important;
+  background-color: $darkerBeige;
+  color: $notBlack;
+  flex-direction: row;
+  justify-content: left;
+  padding: 1rem;
+  gap: 2rem;
   & > span {
     color: $darkerAccent;
     width: 100%;
   }
-}
-
-#footer-versioning {
-  font-size: 4rem;
-  line-height: 2.5rem;
-  font-weight: 900;
-  color: $darkerAccent;
-}
-
-#footer-lower {
-  background-color: $darkerAccent;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1rem;
-  gap: 2rem;
 }
 
 #footer-left {
@@ -148,14 +501,18 @@ footer {
 }
 
 #footer-links {
-  flex: 1;
-  & > div {
-    padding: 0.25rem 0rem;
-  }
+  flex: none;
+  line-height: 1.5;
+}
+
+.footer-credits {
+  flex: none;
+  line-height: 1.5;
 }
 
 #footer-logos {
   display: flex;
+  flex: 1 0 0;
   align-items: flex-end;
   flex-direction: column;
   & > a {
@@ -222,7 +579,7 @@ header {
 
 hr {
   width: min(80vw, 14rem);
-  border-top: 1px solid $notBlack;
+  border: 1px solid $notBlack;
 }
 
 .select-create {

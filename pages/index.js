@@ -31,8 +31,20 @@ export default function Main() {
             Named after the genus of plant commonly referred to as passionflower, Passiflora was conceptualized with the vision of being a web application that would give a quick, at-a-glance shot at a daily routine or schedule. Passiflora is written in JavaScript & HTML using the Next.js web framework.
           </p>
           <h2>How do I use Passiflora?</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat nunc quis mauris feugiat, a varius lacus facilisis. Donec egestas rhoncus euismod. Integer at eros suscipit diam euismod molestie. In hac habitasse platea dictumst. Duis bibendum tempus nisl, a cursus nibh porta vitae. Maecenas ut tristique lacus. Nulla ut quam vitae lorem suscipit dictum eu ut lectus. Mauris eget ante luctus, ornare libero dictum, feugiat justo. Quisque sollicitudin porta ullamcorper. Quisque tempor, nulla sed sagittis lacinia, neque mi malesuada dui, eu posuere felis quam sed nisi. Duis eget nibh eget nisi tempor mollis.</p>
-          <p>Aenean faucibus tellus ut porta pulvinar. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rhoncus id ex vel aliquam. Maecenas nisi felis, rutrum quis vehicula non, ullamcorper nec orci. Maecenas nec sem at massa dictum volutpat quis vitae ex. Proin vulputate dui odio, non mollis sem rhoncus sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi id lacus erat. Duis ut varius metus. Phasellus convallis efficitur magna non porttitor.</p>
+          <p>
+            To get started with creating a schedule, create a schedule with the 
+            <em> Create Schedule</em> button above. From there, you can add, edit, or remove
+            periods of time from a schedule until it fits your needs. Settings to
+            personalize your schedule a bit more are also available to be changed. 
+            When you're done, copy the schedule URL from the bottom of the page and 
+            save it for when you want to view the schedule.
+          </p>
+          <p>
+            To view a schedule, visit the URL you obtained from creating a schedule or
+            enter either the URL or the code into the <em>Enter a code</em> box above.
+            From there, you will be able to view the full schedule detailing at what
+            times each period starts and a countdown to the next occuring period.
+          </p>
         </section>
       </main>
     </div>

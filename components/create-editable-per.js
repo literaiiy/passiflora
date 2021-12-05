@@ -6,25 +6,31 @@ export default class CreateEditablePer extends React.Component {
     super(props);
   }
   
-  handleChange(e) {
-    this.setState(
-      {time: e.target.value,}, 
-      () => {this.props.updateHandler([this.props.period, Funcs.deformatTime(Funcs.getTimeFromMin(this.props.time, 'u'))], this.props.position)}
-    )
+  handleChange = (e) => {
+    console.log(e.target.value)
+    // this.setState(
+    //   {time: e.target.value,}, 
+    //   () => {
+    //     console.log(e.target.value)
+    //     console.log(this.props.time)
+    //     this.props.updateHandler([this.props.period, Funcs.deformatTime(Funcs.getTimeFromMin(this.props.time, 'u'))], this.props.position)
+    //   }
+    // )
+    // this.state.time = e.target.value
+    // console.log(e.target.value)
+    // console.log(this.props.time)
+    this.props.updateHandler([this.props.period, Funcs.deformatTime(e.target.value)], this.props.position)
   }
 
   shiftUp = () => {
-    // this.props.updateShiftUp([this.props.period, Funcs.deformatTime(this.state.time)])
     this.props.updateShiftUp(this.props.position)
   }
 
   shiftDown = () => {
-    // this.props.updateShiftDown([this.props.period, Funcs.deformatTime(this.state.time)])
     this.props.updateShiftDown(this.props.position)
   }
 
   die = () => {
-    // this.props.die([this.props.period, Funcs.deformatTime(this.state.time)])
     this.props.updateDie(this.props.position)
   }
 
@@ -64,7 +70,6 @@ export default class CreateEditablePer extends React.Component {
           <button onClick={this.shiftUp}><i className="bi bi-caret-up-fill"></i></button>
           <button onClick={this.shiftDown}><i className="bi bi-caret-down-fill"></i></button>
           <button onClick={this.die}><i className="bi bi-x-square-fill"></i></button>
-          {/* <select onClick={this.edit}><i className="bi bi-pencil-fill"></i></select> */}
         </td>
       </tr>
     )

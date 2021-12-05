@@ -29,14 +29,14 @@ export default class Create extends React.Component {
   }
 
   masterUpdate = () => {
-    console.log(this.state.schedule)
     const encoded = Funcs.encodeSchedule(this.state.schedule)
     this.setState({url: encoded[0] + "-" + encoded[1] + "-" + this.state.config.join("")})
   }
 
   updateHandler = (period, position) => {
+    console.log(period)
+    console.log(position)
     this.state.schedule.splice(position, 1, period);
-    console.log(this.state.schedule)
     this.masterUpdate();
   }
 
@@ -56,14 +56,6 @@ export default class Create extends React.Component {
   }
 
   updateShiftUp = (pos) => {
-    // let needleMinus = Funcs.getIndexOfArrayInArray(periodArray, this.state.schedule) - 1;
-    // if (needleMinus >= 0) {
-    //   this.setState({
-    //     schedule: 
-    //     [...this.state.schedule.slice(0, needleMinus), this.state.schedule[needleMinus + 1],
-    //     this.state.schedule[needleMinus], ...this.state.schedule.slice(needleMinus + 2)],
-    //   }, this.masterUpdate)
-    // }
     if (pos > 0) {
       this.setState({
         schedule:
@@ -74,7 +66,6 @@ export default class Create extends React.Component {
   }
 
   updateShiftDown = (pos) => {
-    // let needlePlus = Funcs.getIndexOfArrayInArray(periodArray, this.state.schedule) + 1;
     if (pos < this.state.schedule.length - 1) {
       this.setState({
         schedule:
@@ -111,7 +102,7 @@ export default class Create extends React.Component {
 
   render() {
     let periodList = [];
-    console.log(this.state.schedule)
+    console.dir(this.state.schedule)
     for (let x of this.state.schedule) {
       periodList.push(
         <CreateEditablePer 

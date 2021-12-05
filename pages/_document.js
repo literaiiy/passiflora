@@ -28,14 +28,15 @@ class MyDocument extends Document {
           <meta property="og:type" content="wesite" />
           <meta property="og:image" content="https://user-images.githubusercontent.com/64048778/144762674-247cbb50-e074-4df7-9648-a550d5120d1c.png" />
 
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}></script>
-          <script>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=G-8V90F1W1YG`}></script>
+          <script dangerouslySetInnerHTML={{
+            __html=`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments)}
             gtag('js', new Date());
 
-            gtag('config', 'G-8V90F1W1YG');
-          </script>
+            gtag('config', 'G-8V90F1W1YG');`
+          }}></script>
         </Head>
         <Main />
         <NextScript />

@@ -80,6 +80,7 @@ export default class Code extends React.Component {
   return (
     <div className={`${this.state.theme}-theme`}>
       <title>Schedule - Passiflora</title>
+      <meta property="og:title" content={`${this.code} - Passiflora`} />
       <Nav title="View a schedule"/>
       <PostHero title={this.code}/>
       <main id='schedule-main'>

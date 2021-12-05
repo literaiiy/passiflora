@@ -19,7 +19,7 @@ export default class SelectCreate extends React.Component {
 
 		render() {
 				return (
-						<section className='select-create'>
+          <section className='select-create'>
 						<a href={Funcs.defaultHref} >Create a schedule</a>
 						<hr />
 						<form action={this.state.actionUrl}>
@@ -32,7 +32,7 @@ export default class SelectCreate extends React.Component {
             </div>
 						<input id='code-input' type="text" placeholder="Code" onChange={this.handleInputChange}/>
 						</form>
-				</section>
+				  </section>
 				)
 		}
 }

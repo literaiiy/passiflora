@@ -35,10 +35,10 @@ $wintertideAccent: #E3DBDB;
 $wintertideAccent2: #C9D5B5;
 $wintertideDarkerAccent: #a19699;
 
-$vineyardBg: #dac4fd;
-$vineyardAccent: #41656e;
+$vineyardBg: #dfd4b7;
+$vineyardAccent: #471d6e;
 $vineyardAccent2: #5e5fa8;
-$vineyardDarkerAccent: #220C10;
+$vineyardDarkerAccent: #547769;
 
 // Media queries
 
@@ -63,7 +63,7 @@ $vineyardDarkerAccent: #220C10;
 
 .dark-theme {
   & #post-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-dark.jpg")
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-dark.webp")
   }
   & nav {
     background-color: $darkModeBlack;
@@ -110,7 +110,7 @@ $vineyardDarkerAccent: #220C10;
 
 .forest-theme {
   & #post-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-forest.jpg")
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-forest.webp")
   }
   & nav {
     background-color: $forestBg;
@@ -157,7 +157,7 @@ $vineyardDarkerAccent: #220C10;
 
 .oceanic-theme {
   & #post-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-oceanic.jpg")
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-oceanic.webp")
   }
   & nav {
     background-color: $oceanicBg;
@@ -201,7 +201,7 @@ $vineyardDarkerAccent: #220C10;
 
 .aurora-theme {
   & #post-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-aurora.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-aurora.webp");
     background-position: center;
   }
   & .post-hero-text {
@@ -255,7 +255,7 @@ $vineyardDarkerAccent: #220C10;
 
 .velvet-theme { 
   & #post-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-velvet.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-velvet.webp");
     background-position: center;
   }
   & nav {
@@ -300,7 +300,7 @@ $vineyardDarkerAccent: #220C10;
 
 .wintertide-theme {
   & #post-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-wintertide.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-wintertide.webp");
     background-position: center;
   }
   & nav {
@@ -348,7 +348,7 @@ $vineyardDarkerAccent: #220C10;
 
 .vineyard-theme {
   & #post-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-vineyard.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/images/hero-photo-vineyard.webp");
     background-position: center;
   }
   & nav {
@@ -357,7 +357,7 @@ $vineyardDarkerAccent: #220C10;
       color: $vineyardDarkerAccent;
     }
     & .nav-icon {
-      filter: hue-rotate(190deg) saturate(0.2) brightness(1);
+      filter: hue-rotate(300deg) saturate(0.3);
     }
   }
   & .period-emphasis {
@@ -436,7 +436,7 @@ button {
 .hero {
   width: 100%;
   height: min(62.5vh, 40rem);
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.webp");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -732,7 +732,7 @@ nav {
 #post-hero {
   width: 100%;
   height: min(50vh, 30rem);
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/images/hero-photo.webp");
   background-size: cover;
   display: flex;
   justify-content: center;

@@ -11,7 +11,7 @@ export default function Main() {
         <div className="hero">
           <div className='hero-nav'>
             <a href={Funcs.defaultHref} className="nav-create-button">CREATE A SCHEDULE</a>
-            <a href="https://github.com/literaiiy"><img className='nav-icon invert' src="https://unpkg.com/simple-icons@5.21.1/icons/github.svg" alt="GitHub" /></a>
+            <a href="https://github.com/literaiiy"><img width="32" height="32" className='nav-icon invert' src="https://unpkg.com/simple-icons@5.21.1/icons/github.svg" alt="GitHub" /></a>
           </div>
           <span className='hero-text'>Passiflora</span>
         </div>

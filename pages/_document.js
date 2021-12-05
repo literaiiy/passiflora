@@ -25,7 +25,7 @@ class MyDocument extends Document {
           <meta property="og:url" content="https://passiflora.literaiiy.me" />
           <meta property="og:description" content="Passiflora is a customizable and minimalist time organization application used to easily manage schedules and routines for work, school, day-to-day activities, and much more." />
           <meta property="og:type" content="wesite" />
-          <meta property="og:image" content="" />
+          <meta property="og:image" content="https://user-images.githubusercontent.com/64048778/144762674-247cbb50-e074-4df7-9648-a550d5120d1c.png" />
         </Head>
         <Main />
         <NextScript />

@@ -3,8 +3,9 @@ import PostHero from "../components/post-hero"
 
 export default function Privacy() {
     return (
-        <div>
+        <>
             <title>Privacy Policy - Passiflora</title>
+            <meta property="og:title" content={`Privacy Policy - Passiflora`} />
             <main>
                 <Nav title="Privacy Policy"/>
                 <PostHero title="Privacy Policy"/>
@@ -56,6 +57,6 @@ export default function Privacy() {
                   </p>
                 </section>
             </main>
-        </div>
+        </>
     )
 }

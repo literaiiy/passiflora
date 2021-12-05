@@ -30,7 +30,7 @@ class MyDocument extends Document {
 
           <script async src={`https://www.googletagmanager.com/gtag/js?id=G-8V90F1W1YG`}></script>
           <script dangerouslySetInnerHTML={{
-            __html=`
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments)}
             gtag('js', new Date());

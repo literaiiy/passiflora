@@ -20,7 +20,6 @@ class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Noto+Serif+Display:ital,wght@1,500&display=swap" rel="stylesheet"/>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
-          <meta property="og:title" content="Home - Passiflora" />
           <meta property="og:site_name" content="Passiflora" />
           <meta property="og:url" content="https://passiflora.literaiiy.me" />
           <meta property="og:description" content="Passiflora is a customizable and minimalist time organization application used to easily manage schedules and routines for work, school, day-to-day activities, and much more." />

@@ -6,6 +6,7 @@ export default function Main() {
   return (
     <div>
       <title>Home - Passiflora</title>
+      <meta property="og:title" content={`Home- Passiflora`} />
       <main>
         <div className="hero">
           <div className='hero-nav'>

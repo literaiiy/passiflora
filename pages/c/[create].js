@@ -122,7 +122,7 @@ export default class Create extends React.Component {
     return (
       <div>
         <title>Create schedule - Passiflora</title>
-        <meta property="og:title" content="Create a schedule - Passiflora" />
+        <meta property="og:title" content={`Create a schedule - Passiflora`} />
         <Nav/>
         <PostHero title="Create a schedule"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
         <main id="create-main">

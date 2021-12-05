@@ -464,7 +464,7 @@ section {
 
 footer {
   bottom: 0;
-  height: 10rem;
+  min-height: 10rem;
   font-size: 1rem;
   display: flex;
   margin: 0;
@@ -991,4 +991,14 @@ nav {
 
 .display-none {
   display: none;
+}
+
+#passi-404 {
+  height: 24rem;
+  margin: 2rem 0;
+  width: auto;
+}
+
+.bruh {
+  display: flex;
 }

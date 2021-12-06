@@ -472,6 +472,7 @@ footer {
   background-color: $darkerBeige;
   color: $notBlack;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: left;
   padding: 1rem;
   gap: 2rem;

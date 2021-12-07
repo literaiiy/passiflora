@@ -15,7 +15,7 @@ export default class Code extends React.Component {
     this.state = {
       time: new Date(),
       nextPeriod: [null, null],
-      theme: Funcs.reverseConfigConvert[this.settings.theme],
+      theme: Funcs.reverseConfigConvert[this.settings?.theme] || 'p',
     }
   }
 

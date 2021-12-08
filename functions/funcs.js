@@ -29,9 +29,6 @@ export function decodeConfig(url) {
 
 // Returns object of periods and their time occurences
 export function decodeSchedule(code) {
-  // if (!url || !config) {return null}
-  // if (url.length != config.length * 2) {console.log("FUCK1!"); return null}
-  
   let decodedSchedule;
 
   if (isLegitSchedule(code)) {
@@ -111,8 +108,8 @@ export function findNextPeriod(time, sch) {
       if (x[1] > timeInMin) {
         return nextPeriod;
       }
-      return sch[0];
     }
+    return sch[0];
   }
   return [null, null];
 }

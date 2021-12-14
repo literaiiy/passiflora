@@ -11,7 +11,6 @@ export default class PeriodSettingsOption extends React.Component {
   }
 
   handleChange = (e) => {
-    console.log(Funcs.configConvert[e.target.value])
     this.setState(
       {config: Funcs.configConvert[e.target.value]},
       () => this.props.updateHandler(this.state.config)

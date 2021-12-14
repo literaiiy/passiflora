@@ -34,8 +34,6 @@ export default class Create extends React.Component {
   }
 
   updateHandler = (period, position) => {
-    console.log(period)
-    console.log(position)
     this.state.schedule.splice(position, 1, period);
     this.masterUpdate();
   }
@@ -83,8 +81,6 @@ export default class Create extends React.Component {
   }
 
   updateEdit = (choice, pos) => {
-    console.log(choice)
-    console.log(pos)
     this.setState({
       schedule: this.state.schedule.slice(0, pos).concat([[choice, this.state.schedule[pos][1]]]).concat(this.state.schedule.slice(pos + 1, this.state.schedule.length))
     }, this.masterUpdate)
@@ -96,13 +92,8 @@ export default class Create extends React.Component {
     }, this.masterUpdate)
   }
 
-  componentDidUpdate() {
-    console.log("Component has been re-rendered.")
-  }
-
   render() {
     let periodList = [];
-    console.dir(this.state.schedule)
     for (let x of this.state.schedule) {
       periodList.push(
         <CreateEditablePer 

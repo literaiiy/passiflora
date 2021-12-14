@@ -7,18 +7,6 @@ export default class CreateEditablePer extends React.Component {
   }
   
   handleChange = (e) => {
-    console.log(e.target.value)
-    // this.setState(
-    //   {time: e.target.value,}, 
-    //   () => {
-    //     console.log(e.target.value)
-    //     console.log(this.props.time)
-    //     this.props.updateHandler([this.props.period, Funcs.deformatTime(Funcs.getTimeFromMin(this.props.time, 'u'))], this.props.position)
-    //   }
-    // )
-    // this.state.time = e.target.value
-    // console.log(e.target.value)
-    // console.log(this.props.time)
     this.props.updateHandler([this.props.period, Funcs.deformatTime(e.target.value)], this.props.position)
   }
 

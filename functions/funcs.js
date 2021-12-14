@@ -39,9 +39,7 @@ export function decodeSchedule(code) {
       counter++;
     }
     decodedSchedule = decodedSchedule.sort((a,b) => {return a[1] - b[1]})
-  }
-  // if (!validateScheduleInput(decodedSchedule)) {console.log("FUCK2!"); return null}
-  
+  }  
   return decodedSchedule || null;
 }
 
@@ -99,8 +97,6 @@ export function getTimeFromMin(min, format) {
 // Returns the name and time of the next period 
 export function findNextPeriod(time, sch) {
   let timeInMin = Math.floor((Math.round((time-time.getTimezoneOffset()*60000)/1000) % 86400)/60)
-  console.log(timeInMin)
-  console.log(sch)
   if (sch) {
     let nextPeriod = ["", 0];
     for (let x of sch) {
@@ -145,7 +141,6 @@ export function capitalize(str) {
 
 // Decides period to add to schedule based on last period in schedule
 export function decideNextPeriod(lastElement) {
-  console.log(lastElement)
   return (
     [
       typeof lastElement !== "undefined" ?

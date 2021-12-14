@@ -35,7 +35,7 @@ export default class Code extends React.Component {
       this.setState({
         time: new Date(),
         nextPeriod: Funcs.findNextPeriod(this.state.time, this.schedule),
-      }, () => {console.log(this.state.nextPeriod)})
+      })
     }, 1000)
   }
 

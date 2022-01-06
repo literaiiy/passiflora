@@ -14,7 +14,7 @@ class MyDocument extends Document {
         <Head>
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="theme-color" content="#bb4667" />
+          <meta name="theme-color" content="#fffef3" />
           <meta name="description" content="Passiflora is a customizable and minimalist time organization application used to easily manage schedules and routines for work, school, and much more." /> 
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />

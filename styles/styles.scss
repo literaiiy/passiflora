@@ -1,6 +1,6 @@
 $accent: #db6a8a;
 $darkerAccent: #bb4667;
-$beige: rgb(255, 254, 243);
+$beige: #fffef3;
 $darkerBeige: #fbf8ee;
 $notBlack: #2c2c2c;
 $defaultTransition: ease 0.35s;
@@ -458,7 +458,8 @@ section {
   color: white;
   z-index: 20;
   font-size: 4rem;
-  font-family: "Noto Serif Display";
+  font-family: "Noto Serif Display", "Crimson Pro";
+  font-style: italic;
   text-shadow: 0.25rem 0.25rem 0.125rem rgba(64, 64, 64, 0.75);
 }
 

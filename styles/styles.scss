@@ -746,7 +746,8 @@ nav {
   color: white;
   z-index: 20;
   font-size: min(10vw, 3rem);
-  font-family: "Noto Serif Display";
+  font-family: "Noto Serif Display", "Crimson Pro";
+  font-style: italic;
   text-shadow: 0.2rem 0.2rem 0.125rem rgba(64, 64, 64, 0.75);
   text-align: center;
 }

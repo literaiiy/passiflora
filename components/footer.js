@@ -38,7 +38,7 @@ export default class Footer extends React.Component {
           <div><a className='styled-a' href="https://unsplash.com/@timmossholder">Tim Mossholder</a></div>
         </div>
         <div id='footer-logos'>
-          <a href="https://github.com/literaiiy"><img width="32" height="32" className='footer-github-logo'src="https://unpkg.com/simple-icons@5.21.1/icons/github.svg" alt="GitHub" /></a>
+          <a href="https://github.com/literaiiy/passiflora"><img width="32" height="32" className='footer-github-logo'src="https://unpkg.com/simple-icons@5.21.1/icons/github.svg" alt="GitHub" /></a>
           <a href="https://nextjs.org"><img className='footer-nextjs-logo' src="/images/nextjs-logotype-dark.svg" alt="Next.js" /></a>
           <a href="https://vercel.com"><img className='footer-vercel-logo' src="/images/vercel-logotype-dark.svg" alt="Vercel" /></a>
         </div>

@@ -35,7 +35,7 @@ class MyDocument extends Document {
             function gtag(){dataLayer.push(arguments)}
             gtag('js', new Date());
 
-            gtag('config', 'G-8V90F1W1YG');`
+            gtag('config', 'G-8V90F1W1YG', { 'anonymize_ip': true });`
           }}></script>
         </Head>
         <Main />

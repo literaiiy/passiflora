@@ -5,7 +5,7 @@ import * as Funcs from "../functions/funcs.js"
 export default function Main() {
   return (
     <div>
-      <title>Home - Passiflora</title>
+      <title>Passiflora: a simple & customizable schedule creator</title>
       <meta property="og:title" content="Home - Passiflora" />
       <main>
         <div className="hero">
